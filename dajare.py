@@ -23,13 +23,19 @@ def get_dajare(s, lim=3, remove=["っ"]):
             word = reading[idx:idx+i]
             idx += 1
             if word in words:
-                dajares.append((words[word][0], idx, len(word)))
-                if len(word) > len(longest):
-                    longest = word
+                for w in words[word]:
+                    if w + len(word) > idx:
+                        continue
+                    dajares.append((words[word][0], idx, len(word)))
+                    if len(word) > len(longest):
+                        longest = word
             l = words.setdefault(word, [])
             l.append(idx)
     return dajares, longest
 
+assert len(get_dajare("ほげほげほげ")[0]) == 0
+assert len(get_dajare("わたしはわたし")[0]) == 1
+print(get_dajare("わたしはわたし"))
 
 if __name__ == '__main__':
     pass
