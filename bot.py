@@ -15,6 +15,10 @@ if api_interface.rtm_connect():
         data = api_interface.rtm_read()
         if len(data) >= 1 and "text" in data[0]:
             try:
+                if "subtype" in data[0] and data[0]["subtype"] == "bot_message":
+                    continue
+                if "C04G7TLB7" != data[0]["channel"]:
+                    continue
                 h, s =  get_dajare(data[0]["text"])
                 if len(h) > 0:
                     print(api_interface.api_call("chat.postMessage",

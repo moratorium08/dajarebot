@@ -35,7 +35,7 @@ def get_dajare(s, lim=3, remove=["っ"]):
 
 assert len(get_dajare("ほげほげほげ")[0]) == 0
 assert len(get_dajare("わたしはわたし")[0]) == 1
-print(get_dajare("わたしはわたし"))
+#print(get_dajare("九十九十九"))
 
 if __name__ == '__main__':
     pass
