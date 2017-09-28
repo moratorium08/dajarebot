@@ -18,7 +18,8 @@ if api_interface.rtm_connect():
                 h, s =  get_dajare(data[0]["text"])
                 if len(h) > 0:
                     print(api_interface.api_call("chat.postMessage",
-                        username=user_name, channel=channel, text=s))
+                        username=user_name, channel=channel, text=s,
+                        icon_url=icon_url))
             except:
                 print("error")
 
