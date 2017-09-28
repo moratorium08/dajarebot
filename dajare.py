@@ -9,8 +9,7 @@ def yomi(s):
     return ret
 
 def get_dajare(s, lim=3, remove=["っ"]):
-
-    reading = yomi(s)
+    reading = yomi(s.replace(" ", ""))
     for r in remove:
         reading = reading.replace(r, "")
     words = dict() # [String, list(st)]
@@ -35,7 +34,7 @@ def get_dajare(s, lim=3, remove=["っ"]):
 
 assert len(get_dajare("ほげほげほげ")[0]) == 0
 assert len(get_dajare("わたしはわたし")[0]) == 1
-#print(get_dajare("九十九十九"))
+print(get_dajare("はいプロ 世界一起床が上手 起床界のtourist 布団時代の終焉を告げる者 実質朝 起床するために生まれてきた男"))
 
 if __name__ == '__main__':
     pass
